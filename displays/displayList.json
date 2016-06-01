@@ -1,0 +1,18 @@
+[
+  {
+    "uid": 1,
+    "group": "common",
+    "name": "list_vs_time",
+    "desc": "Median monthly list price vs. time",
+    "n": 2984,
+    "panelFnType": "trellisFn",
+    "preRender": true,
+    "dataClass": "kvMemory",
+    "cogClass": "dfCogConn",
+    "height": 500,
+    "width": 500,
+    "updated": "2016-05-27 21:19:05",
+    "keySig": "327a297cadc3e056f69ea84ea579a2f9",
+    "_row": "common_list_vs_time"
+  }
+]

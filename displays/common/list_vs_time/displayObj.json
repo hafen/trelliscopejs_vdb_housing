@@ -1,0 +1,215 @@
+{
+  "name": "list_vs_time",
+  "group": "common",
+  "desc": "Median monthly list price vs. time",
+  "mdDesc": "## This is a display ##\n\n**boldness**\n\n|             county| state|       time|  nSold| medListPriceSqft|\n|:------------------|:-----|----------:|------:|----------------:|\n| Los Angeles County|    CA| 2008-07-31| 445700|               NA|\n| Los Angeles County|    CA| 2008-08-31| 435300|               NA|\n| Los Angeles County|    CA| 2008-09-30| 426700|               NA|\n| Los Angeles County|    CA| 2008-10-31| 419800|         273.3073|\n| Los Angeles County|    CA| 2008-11-30| 413300|         266.5778|\n| Los Angeles County|    CA| 2008-12-31| 408200|         261.4880|\n| Los Angeles County|    CA| 2009-01-31| 405200|         256.6524|\n\n\n- a list\n- with items\n",
+  "preRender": true,
+  "panelFn": "function(x)\n  xyplot(medListPriceSqft ~ time, data = x)",
+  "panelFnType": "trellisFn",
+  "cogFn": "function(x) {\n   zillowString <- gsub(\" \", \"-\", do.call(paste, getSplitVars(x)))\n   list(\n      slope = cog(coef(lm(medListPriceSqft ~ time, data = x))[2],\n         desc = \"list price slope\"),\n      meanList = cogMean(x$medListPriceSqft),\n      meanSold = cogMean(x$medSoldPriceSqft),\n      nObs = cog(length(which(!is.na(x$medListPriceSqft))),\n         desc = \"number of non-NA list prices\"),\n      zillowHref = cogHref(\n         sprintf(\"http://www.zillow.com/homes/%s_rb/\", zillowString),\n         desc = \"zillow link\")\n   )\n}",
+  "n": 2984,
+  "cogInfo": [
+    {
+      "name": "panelKey",
+      "desc": "panel key",
+      "type": "key",
+      "group": "panelKey",
+      "defLabel": false,
+      "defActive": true,
+      "filterable": false
+    },
+    {
+      "name": "county",
+      "desc": "conditioning variable",
+      "type": "factor",
+      "group": "condVar",
+      "defLabel": true,
+      "defActive": true,
+      "filterable": true
+    },
+    {
+      "name": "state",
+      "desc": "conditioning variable",
+      "type": "factor",
+      "group": "condVar",
+      "defLabel": true,
+      "defActive": true,
+      "filterable": true
+    },
+    {
+      "name": "slope",
+      "desc": "list price slope",
+      "type": "numeric",
+      "group": "common",
+      "defLabel": false,
+      "defActive": true,
+      "filterable": true
+    },
+    {
+      "name": "meanList",
+      "desc": "mean",
+      "type": "numeric",
+      "group": "common",
+      "defLabel": false,
+      "defActive": true,
+      "filterable": true
+    },
+    {
+      "name": "meanSold",
+      "desc": "mean",
+      "type": "numeric",
+      "group": "common",
+      "defLabel": false,
+      "defActive": true,
+      "filterable": true
+    },
+    {
+      "name": "nObs",
+      "desc": "number of non-NA list prices",
+      "type": "numeric",
+      "group": "common",
+      "defLabel": false,
+      "defActive": true,
+      "filterable": true
+    },
+    {
+      "name": "zillowHref",
+      "desc": "zillow link",
+      "type": "href",
+      "group": "common",
+      "defLabel": false,
+      "defActive": false,
+      "filterable": false
+    }
+  ],
+  "cogDistns": {
+    "panelKey": {
+      "type": "key",
+      "dist": {}
+    },
+    "county": {
+      "type": "factor",
+      "dist": {}
+    },
+    "state": {
+      "type": "factor",
+      "dist": {
+        "val": ["TX", "GA", "VA", "KY", "MO", "IL", "NC", "IA", "TN", "KS", "IN", "OH", "MN", "MI", "MS", "OK", "AR", "WI", "NE", "AL", "FL", "PA", "LA", "NY", "CO", "CA", "WV", "MT", "SC", "ID", "SD", "WA", "OR", "ND", "NM", "UT", "MD", "WY", "NJ", "NV", "ME", "AZ", "MA", "VT", "NH", "CT", "RI", "DE", "DC"],
+        "freq": [232, 157, 134, 118, 114, 101, 100, 99, 95, 94, 92, 88, 87, 83, 80, 76, 75, 72, 71, 67, 67, 67, 64, 62, 61, 58, 55, 48, 46, 43, 39, 39, 36, 33, 31, 29, 24, 23, 21, 17, 16, 15, 14, 14, 10, 8, 5, 3, 1]
+      }
+    },
+    "slope": {
+      "type": "numeric",
+      "dist": {
+        "raw": {
+          "breaks": [-0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1],
+          "freq": [1, 2, 4, 1545, 1418, 2, 0, 2, 0, 0, 0, 0, 0, 0, 1]
+        }
+      },
+      "log_dist": {}
+    },
+    "meanList": {
+      "type": "numeric",
+      "dist": {
+        "raw": {
+          "breaks": [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300],
+          "freq": [2064, 835, 53, 22, 3, 3, 1, 0, 1, 1, 0, 0, 1]
+        },
+        "log": {
+          "breaks": [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300],
+          "freq": [2064, 835, 53, 22, 3, 3, 1, 0, 1, 1, 0, 0, 1]
+        }
+      },
+      "log_dist": {}
+    },
+    "meanSold": {
+      "type": "numeric",
+      "dist": {
+        "raw": {
+          "breaks": [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800],
+          "freq": [1903, 70, 11, 1, 0, 1, 0, 1, 1]
+        },
+        "log": {
+          "breaks": [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800],
+          "freq": [1903, 70, 11, 1, 0, 1, 0, 1, 1]
+        }
+      },
+      "log_dist": {}
+    },
+    "nObs": {
+      "type": "numeric",
+      "dist": {
+        "raw": {
+          "breaks": [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85],
+          "freq": [24, 15, 19, 16, 9, 21, 13, 15, 11, 19, 19, 16, 31, 35, 46, 820, 1855]
+        }
+      },
+      "log_dist": {}
+    },
+    "zillowHref": {
+      "type": "href",
+      "dist": {}
+    }
+  },
+  "updated": "2016-05-27 21:19:05",
+  "keySig": "327a297cadc3e056f69ea84ea579a2f9",
+  "height": 500,
+  "width": 500,
+  "lims": {
+    "x": {
+      "type": "free"
+    },
+    "y": {
+      "type": "free"
+    }
+  },
+  "relatedData": {},
+  "relatedPackages": ["trelliscope", "lattice", "base", "datadr", "stats"],
+  "envs": {},
+  "state": {
+    "sort": [
+      {
+        "order": 1,
+        "dir": "desc",
+        "name": "state"
+      },
+      {
+        "order": 2,
+        "dir": "asc",
+        "name": "county"
+      }
+    ],
+    "filter": {
+      "county": {
+        "name": "county",
+        "type": "regex",
+        "value": "Be"
+      },
+      "state": {
+        "name": "state",
+        "type": "select",
+        "value": ["OR", "WA", "VA", "TX"]
+      },
+      "meanList": {
+        "name": "meanList",
+        "type": "range",
+        "value": {
+          "from": 50,
+          "to": 300
+        }
+      }
+    },
+    "labels": ["county", "state"],
+    "layout": {
+      "nrow": 2,
+      "ncol": 4,
+      "arrange": "row"
+    }
+  },
+  "cogInterface": {
+    "name": "list_vs_time",
+    "group": "common",
+    "type": "JSON"
+  },
+  "example": " $ key  : chr \"county=Abbeville County|state=SC\"\n $ value:'data.frame':\t77 obs. of  5 variables:\n  ..$ fips            : chr [1:77] \"45001\" \"45001\" \"45001\" \"45001\" ...\n  ..$ time            : Date[1:77], format: \"2008-10-31\" \"2008-11-30\" ...\n  ..$ nSold           : num [1:77] NA NA NA NA NA NA NA NA NA NA ...\n  ..$ medListPriceSqft: num [1:77] 73.1 70.7 70.7 73.4 78.7 ...\n  ..$ medSoldPriceSqft: num [1:77] NA NA NA NA NA NA NA NA NA NA ...\n  ..- attr(*, \"split\")='data.frame':\t1 obs. of  2 variables:\n  .. ..$ county: chr \"Abbeville County\"\n  .. ..$ state : chr \"SC\"\n - attr(*, \"class\")= chr [1:2] \"kvPair\" \"list\""
+}
