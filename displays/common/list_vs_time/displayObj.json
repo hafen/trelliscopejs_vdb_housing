@@ -2,7 +2,7 @@
   "name": "list_vs_time",
   "group": "common",
   "desc": "Median monthly list price vs. time",
-  "mdDesc": "## This is a display ##\n\n**boldness**\n\n|             county| state|       time|  nSold| medListPriceSqft|\n|:------------------|:-----|----------:|------:|----------------:|\n| Los Angeles County|    CA| 2008-07-31| 445700|               NA|\n| Los Angeles County|    CA| 2008-08-31| 435300|               NA|\n| Los Angeles County|    CA| 2008-09-30| 426700|               NA|\n| Los Angeles County|    CA| 2008-10-31| 419800|         273.3073|\n| Los Angeles County|    CA| 2008-11-30| 413300|         266.5778|\n| Los Angeles County|    CA| 2008-12-31| 408200|         261.4880|\n| Los Angeles County|    CA| 2009-01-31| 405200|         256.6524|\n\n\n- a list\n- with items\n",
+  "mdDesc": "## Sample of the data\n\n|             county| state|       time|  nSold| medListPriceSqft|\n|:------------------|:-----|----------:|------:|----------------:|\n| Los Angeles County|    CA| 2008-07-31| 445700|               NA|\n| Los Angeles County|    CA| 2008-08-31| 435300|               NA|\n| Los Angeles County|    CA| 2008-09-30| 426700|               NA|\n| Los Angeles County|    CA| 2008-10-31| 419800|         273.3073|\n| Los Angeles County|    CA| 2008-11-30| 413300|         266.5778|\n| Los Angeles County|    CA| 2008-12-31| 408200|         261.4880|\n| Los Angeles County|    CA| 2009-01-31| 405200|         256.6524|\n",
   "preRender": true,
   "panelFn": "function(x)\n  xyplot(medListPriceSqft ~ time, data = x)",
   "panelFnType": "trellisFn",
@@ -49,7 +49,11 @@
       "defLabel": false,
       "defActive": true,
       "filterable": true,
-      "log": null
+      "log": null,
+      "range": [-0.3128, 1.0877],
+      "nnna": 2975,
+      "breaks": [-0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1],
+      "delta": 0.1
     },
     "meanList": {
       "name": "meanList",
@@ -59,7 +63,11 @@
       "defLabel": false,
       "defActive": true,
       "filterable": true,
-      "log": null
+      "log": null,
+      "range": [16.5865, 1205.0488],
+      "nnna": 2984,
+      "breaks": [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300],
+      "delta": 100
     },
     "meanSold": {
       "name": "meanSold",
@@ -69,7 +77,11 @@
       "defLabel": false,
       "defActive": true,
       "filterable": true,
-      "log": null
+      "log": null,
+      "range": [21.0325, 1775.1325],
+      "nnna": 1988,
+      "breaks": [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800],
+      "delta": 200
     },
     "nObs": {
       "name": "nObs",
@@ -79,7 +91,11 @@
       "defLabel": false,
       "defActive": true,
       "filterable": true,
-      "log": null
+      "log": null,
+      "range": [1, 81],
+      "nnna": 2984,
+      "breaks": [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85],
+      "delta": 5
     },
     "zillowHref": {
       "name": "zillowHref",
@@ -1991,7 +2007,7 @@
       "dist": {}
     }
   },
-  "updated": "2016-05-27 19:19:05",
+  "updated": "2016-08-09 17:29:37",
   "keySig": "327a297cadc3e056f69ea84ea579a2f9",
   "height": 500,
   "width": 500,
@@ -2020,13 +2036,6 @@
       }
     ],
     "filter": {
-      "county": {
-        "name": "county",
-        "type": "regex",
-        "varType": "factor",
-        "value": "Be",
-        "vals": ["Abbeville County", "Albemarle County", "Bamberg County", "Barber County", "Beadle County", "Bear Lake County", "Beaufort County", "Beauregard Parish", "Beaver County", "Beaverhead County", "Becker County", "Beckham County", "Bedford County", "Bedford city", "Bee County", "Belknap County", "Bell County", "Belmont County", "Beltrami County", "Ben Hill County", "Benewah County", "Bennington County", "Bent County", "Benton County", "Benzie County", "Bergen County", "Berkeley County", "Berks County", "Berkshire County", "Bernalillo County", "Berrien County", "Bertie County", "Bexar County", "Buncombe County", "Cabell County", "Campbell County", "Chambers County", "Colbert County", "Culberson County", "Cumberland County", "Edgecombe County", "Elbert County", "Fort Bend County", "Habersham County", "Iberia Parish", "Iberville Parish", "Isabella County", "Kanabec County", "Kennebec County", "Kleberg County", "Labette County", "Liberty County", "Muhlenberg County", "Newberry County", "Northumberland County", "Okeechobee County", "Oktibbeha County", "Palm Beach County", "Roberts County", "Robertson County", "Robeson County", "San Benito County", "San Bernardino County", "St. Bernard Parish", "Steuben County", "Virginia Beach city", "Weber County"]
-      },
       "state": {
         "name": "state",
         "type": "select",
