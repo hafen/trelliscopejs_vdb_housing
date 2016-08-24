@@ -3,7 +3,7 @@
     "uid": 1,
     "group": "common",
     "name": "list_vs_time",
-    "desc": "median monthly list price vs. time for 2984 US counties from 2008\u20132016",
+    "desc": "monthly median list price vs. time for 2984 US counties from 2008\u20132016",
     "n": 2984,
     "panelFnType": "trellisFn",
     "preRender": true,
