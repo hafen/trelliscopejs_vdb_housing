@@ -1,0 +1,34 @@
+[
+  {
+    "uid": 1,
+    "group": "common",
+    "name": "list_vs_time",
+    "desc": "monthly median list price vs. time for 2984 US counties from 2008–2016",
+    "n": 2984,
+    "panelFnType": "trellisFn",
+    "preRender": true,
+    "dataClass": "kvMemory",
+    "cogClass": "dfCogConn",
+    "height": 500,
+    "width": 500,
+    "updated": "2016-09-24 00:11:18",
+    "keySig": "327a297cadc3e056f69ea84ea579a2f9",
+    "_row": "common_list_vs_time"
+  },
+  {
+    "uid": 2,
+    "group": "common",
+    "name": "list_vs_time_bk",
+    "desc": "monthly median list price vs. time for 2984 US counties from 2008–2016",
+    "n": 2984,
+    "panelFnType": "htmlwidgetFn",
+    "preRender": false,
+    "dataClass": "kvMemory",
+    "cogClass": "dfCogConn",
+    "height": 500,
+    "width": 500,
+    "updated": "2016-09-24 00:13:05",
+    "keySig": "327a297cadc3e056f69ea84ea579a2f9",
+    "_row": "common_list_vs_time_bk"
+  }
+]
